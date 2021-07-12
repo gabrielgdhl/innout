@@ -24,11 +24,21 @@
                 <?php include(TEMPLATE_PATH.'/messages.php') ?>
                 <div class="form-group">
                     <label for="email">E-mail</label>
-                    <input type="email" name="email" id="email" class="form-control" value="<?=$email ?>" placeholder="Digite seu e-mail" autofocus>
+                    <input type="email" name="email" id="email" 
+                    class="form-control <?= $errors['email'] ? 'is-invalid' : ''; ?> " 
+                    value="<?=$email ?>" placeholder="Digite seu e-mail" autofocus>
+                    <div class="invalid-feedback">
+                        <?= $errors['email']?>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="senha">Senha</label>
-                    <input type="password" name="password" id="senha" class="form-control" placeholder="Digite sua senha">
+                    <input type="password" name="password" id="senha" 
+                    class="form-control <?= $errors['password'] ? 'is-invalid' : ''; ?>" 
+                    placeholder="Digite sua senha">
+                    <div class="invalid-feedback">
+                        <?= $errors['password']?>
+                    </div>
                 </div>
             </div>
             <div class="card-footer">

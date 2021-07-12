@@ -1,6 +1,6 @@
 <?php
 
-class ValidationException extends Exception{
+class ValidationException extends AppException{
     
     /**
      * Array de erros de validação
