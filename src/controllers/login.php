@@ -6,7 +6,7 @@ if(isset($_POST)){
     $login = new Login($_POST);
         try{
             $user = $login->checkLogin();
-            echo 'Usuario Logado';
+            header("Location: day_records.php");
         }catch(AppException $e){
             $exception = $e;
         }
