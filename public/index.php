@@ -1,13 +1,14 @@
 <?php
 
 require_once(dirname(__FILE__, 2).'/src/config/config.php');
-// require_once realpath(CONTROLLER_PATH.'/login.php');
 
-$uri = urldecode($_SERVER['REQUEST_URI']);
+//Capturando a URL e salvando valor em uma variável
+$uri = urldecode(
+                 parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
+                );
 
-
-if($uri === '/estudos/innout/public/' || $uri === '' || $uri === '/estudos/innout/public/index.php'){
+if($uri === '/' || $uri === '' || $uri === '/index.php'){
     $uri = '/login.php';
 }
-echo $uri;
+
 require_once(CONTROLLER_PATH. "/{$uri}");
