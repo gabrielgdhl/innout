@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/comum.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/icofont.min.css">
-    <link rel="stylesheet" href="assets/css/template.css">
+    <link rel="stylesheet" href="./assets/css/comum.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/icofont.min.css">
+    <link rel="stylesheet" href="./assets/css/template.css">
     <title>In N' Out</title>
 </head>
 <body>
@@ -25,8 +25,8 @@
         <div class="spacer"></div>
             <div class="dropdown">
                 <div class="dropdown-button">
-                    <span>Usuário Mock</span>
-                    <i class="icofont-simple-down ml-2"></i>
+                    <span class="ml-2">Usuário Mock</span>
+                    <i class="icofont-simple-down mx-3"></i>
                 </div>
                 <div class="dropdown-content">
                     <ul class="nav-list">
