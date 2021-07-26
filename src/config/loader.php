@@ -47,7 +47,13 @@ function loadTemplateView($viewName, $params = array()){
     require_once(TEMPLATE_PATH."/footer.php");
 }
 
-
+/**
+ * Método responsável por renderizar o titulo da página
+ *
+ * @param string $title
+ * @param string $subTitle
+ * @param string $icon
+ */
 function loadTitle($title, $subTitle, $icon = null){
     require_once(TEMPLATE_PATH. "/title.php");
 }
