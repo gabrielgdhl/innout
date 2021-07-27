@@ -1,5 +1,7 @@
 <?php
 
+loadModel('workingHours');
+
 /**
  * Método para Gerar Datas e Horas aleatorias para popular o BD
  *

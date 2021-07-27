@@ -31,4 +31,20 @@ class Database {
         return $result;
     }
 
+    /**
+     * Método que executa uma query e retona o ID
+     *
+     * @param String $sql
+     * @return int
+     */
+    public static function executeSQL($sql){
+        $conn = self::getConnection();
+        if(!mysqli_query($conn, $sql)){
+            throw new Exception(mysqli_error($conn));
+        }
+        $id = $conn->insert_id;
+        $conn->close();
+        return $id;
+    }
+
 }//fim da classe Databse

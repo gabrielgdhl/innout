@@ -143,5 +143,21 @@ class Model {
         return $value;
     }
 
+    /**
+     * Método que Inseri valores no BD
+     *
+     * @return integer
+     */
+    public function insert(){
+        $sql = "INSERT INTO ".static::$tableName." ("
+        . implode(",", static::$columns).") VALUES (";
+        foreach(static::$columns as $col){
+            $sql.=static::getValorWhereFormatado($this->$col) . ",";
+        }
+        $sql[strlen($sql)-1] = ')';
+        $id = Database::executeSQL($sql);
+        $this->id = $id;
+    }
+
 
 }//fim da classe Model;
