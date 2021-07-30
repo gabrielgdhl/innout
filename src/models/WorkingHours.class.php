@@ -21,7 +21,7 @@ class WorkingHours extends Model {
         'time2',
         'time3',
         'time4',
-        'working_time'
+        'worked_time'
     ];
 
 }

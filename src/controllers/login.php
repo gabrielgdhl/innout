@@ -8,7 +8,7 @@ if(isset($_POST)){
         try{
             $user = $login->checkLogin();
             $_SESSION['user'] = $user;
-            header("Location: day_records.php");
+            header("Location: dayRecords.php");
         }catch(AppException $e){
             $exception = $e;
         }
