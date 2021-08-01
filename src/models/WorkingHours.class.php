@@ -44,4 +44,38 @@ class WorkingHours extends Model {
         return $registry;
     }
 
+    /**
+     * Método responsável por determinar a sequência de pontos a bater
+     *
+     * @return string
+     */
+    public function getNextTime(){
+        if(!$this->time1) return 'time1';
+        if(!$this->time2) return 'time2';
+        if(!$this->time3) return 'time3';
+        if(!$this->time4) return 'time4';
+
+        return null;
+    }
+
+    /**
+     * Método responsável por registrar todos os pontos
+     *
+     * @param [type] $time
+     * @return void
+     */
+    public function innout($time){
+        $timeColumn = $this->getNextTime();
+        if(!$timeColumn){
+            throw new AppException("Você já fez os 4 batimentos do dia!");
+        }
+
+        $this->$timeColumn = $time;
+        if($this->id){
+            $this->update();
+        }else{
+            $this->insert();
+        }
+    }
+
 }
