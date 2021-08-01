@@ -61,15 +61,15 @@ class WorkingHours extends Model {
     /**
      * Método responsável por registrar todos os pontos
      *
-     * @param [type] $time
+     * @param DateTime $time
      * @return void
      */
     public function innout($time){
         $timeColumn = $this->getNextTime();
-        if(!$timeColumn){
+        if(is_null($timeColumn)){
             throw new AppException("Você já fez os 4 batimentos do dia!");
         }
-
+        
         $this->$timeColumn = $time;
         if($this->id){
             $this->update();
