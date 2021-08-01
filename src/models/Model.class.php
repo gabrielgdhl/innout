@@ -159,5 +159,20 @@ class Model {
         $this->id = $id;
     }
 
+    /**
+     * Método responsável por atualizar os dados no BD
+     *
+     * @return void
+     */
+    public function update(){
+        $sql = "UPDATE ".static::$tableName." SET ";
+        foreach(static::$columns as $column){
+            $sql .= "${column} = ".static::getValorWhereFormatado($this->$column).",";
+        }
+        $sql[strlen($sql)-1] = ' ';
+        $sql .= "WHERE id = {$this->id}";
+        Database::executeSQL($sql);
+    }
 
-}//fim da classe Model;
+
+}//fim da classe Model
