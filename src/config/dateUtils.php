@@ -45,3 +45,51 @@ function getNextDay($date){
     $inputDate->modify('+1 day');
     return $inputDate;
 }
+
+/**
+ * Método responsavél por somar as horas
+ *
+ * @param string $interval1
+ * @param string $interval2
+ * @return void
+ */
+function sumIntervals($interval1, $interval2){
+    $date = new DateTime('00:00:00');
+    $date->add($interval1);
+    $date->add($interval2);
+    return (new DateTime('00:00:00'))->diff($date);
+}
+
+/**
+ * Método responsavél por subtrair as horas
+ *
+ * @param string $interval1
+ * @param string $interval2
+ * @return void
+ */
+function subtractIntervals($interval1, $interval2){
+    $date = new DateTime('00:00:00');
+    $date->add($interval1);
+    $date->sub($interval2);
+    return (new DateTime('00:00:00'))->diff($date);
+}
+
+/**
+ * Converte o tipo para DateTime object
+ *
+ * @param string $interval
+ * @return void
+ */
+function convertIntervalToDate($interval){
+    return new DateTime($interval->format('%H:%i:%s'));
+}
+
+/**
+ * Método para converter um DateTime em string
+ *
+ * @param DateTime $string
+ * @return void
+ */
+function getDateFromString($string){
+    return DateTimeImmutable::createFromFormat('H:i:s', $string);
+}

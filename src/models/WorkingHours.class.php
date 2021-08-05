@@ -78,4 +78,20 @@ class WorkingHours extends Model {
         }
     }
 
+    /**
+     * Método para agrupar as Horas trabalhadas em um unico array
+     *
+     * @return array
+     */
+    private function getTimes(){
+        $times = [];
+
+        $this->time1 ? array_push($times, getDateFromString($this->time1)) : array_push($times, null);
+        $this->time2 ? array_push($times, getDateFromString($this->time2)) : array_push($times, null);
+        $this->time3 ? array_push($times, getDateFromString($this->time3)) : array_push($times, null);
+        $this->time4 ? array_push($times, getDateFromString($this->time4)) : array_push($times, null);
+
+        return $times;
+    }
+
 }
